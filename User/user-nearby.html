@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nearby Scholarship</title>
+    <link
+      rel="shortcut icon"
+      href="/SCHOOlar/images/logo.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/SCHOOlar/css/user-nearby.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    />
+  </head>
+  <body>
+    <!-- Desktop Sidebar -->
+    <aside class="sidebar">
+      <h2>SCHOOlar</h2>
+      <nav>
+        <a href="/SCHOOlar/User/user-dashboard.html"
+          ><img src="/SCHOOlar/icons/icons8-home-30.png" alt="" /> Home</a
+        >
+        <a href="/SCHOOlar/User/user-search.html"
+          ><img src="/SCHOOlar/icons/icons8-search-30.png" alt="" /> Find
+          Scholarships</a
+        >
+        <a href="/SCHOOlar/User/user-nearby.html" class="active">
+          <img src="/SCHOOlar/icons/icons8-location-30.png" alt="" />Nearby</a
+        >
+        <a href="/SCHOOlar/User/user-saved.html"
+          ><img src="/SCHOOlar/icons/icons8-saved-30.png" alt="" /> Saved</a
+        >
+        <a href="/SCHOOlar/User/user-profile.html"
+          ><img src="/SCHOOlar/icons/icons8-profile-30.png" alt="" /> Profile</a
+        >
+        <a href="/SCHOOlar/index.html" class="logout-link"
+          ><img src="/SCHOOlar/icons/icons8-logout-30.png" alt="" /> Logout</a
+        >
+      </nav>
+    </aside>
+
+    <div class="main-content">
+      <a href="/SCHOOlar/User/user-dashboard.html" id="back-btn">
+        <img src="/SCHOOlar/icons/icons8-back-30.png" alt="" />
+      </a>
+      <div class="container">
+        <h3>Nearby Scholarships</h3>
+
+        <div class="filter-row">
+          <div class="field">
+            <label for="municipality">Municipality</label>
+            <select id="municipality">
+              <option value="">All Municipalities</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="barangay">Barangay</label>
+            <select id="barangay" disabled>
+              <option value="">All Barangays</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="display-content">
+        <p class="empty-state">No nearby scholarships to show yet.</p>
+      </div>
+    </div>
+
+
+    <nav class="mobile-nav">
+      <a href="/SCHOOlar/User/user-dashboard.html"
+        ><img src="/SCHOOlar/icons/icons8-home-30.png" alt="" />
+      </a>
+      <a href="/SCHOOlar/User/user-search.html"
+        ><img src="/SCHOOlar/icons/icons8-search-30.png" alt="" />
+      </a>
+      <a href="/SCHOOlar/User/user-nearby.html" class="active"
+        ><img src="/SCHOOlar/icons/icons8-location-30.png" alt="" />
+      </a>
+      <a href="/SCHOOlar/User/user-saved.html"
+        ><img src="/SCHOOlar/icons/icons8-saved-30.png" alt="" />
+      </a>
+      <a href="/SCHOOlar/User/user-setting.html"
+        ><img src="/SCHOOlar/icons/icons8-setting-30.png" alt="" />
+      </a>
+    </nav>
+      <script src="/SCHOOlar/javascript/auth-check.js"></script>
+    <script src="/SCHOOlar/javascript/frontend-data.js"></script>
+    <script src="/SCHOOlar/javascript/user-nearby.js"></script>
+  </body>
+</html>
+

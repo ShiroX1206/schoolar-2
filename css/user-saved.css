@@ -1,0 +1,315 @@
+/* ============================
+         Reset
+      ============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffffff 0%, #a8dcf0 100%);
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  color: #1e293b;
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+/* ============================
+         Desktop Sidebar
+      ============================ */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 240px;
+  height: 100vh;
+  background: #fff;
+  padding: 30px 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+  color: #2563eb;
+  margin-bottom: 30px;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #444;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+}
+
+.sidebar nav a > img {
+  width: 20px;
+}
+
+.sidebar nav a.active > img {
+  filter: brightness(0) invert(1);
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background: #2563eb;
+  color: white;
+}
+
+/* ============================
+         Main Content
+      ============================ */
+.main-content {
+  margin-left: 240px;
+  padding: 30px;
+}
+
+.main-content .container {
+  max-width: 1200px;
+  margin: auto;
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.container h3 {
+  color: #2563eb;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  margin-bottom: 20px;
+}
+
+#back-btn {
+  display: none;
+}
+
+/* ============================
+         Tabs (Saved / Recently Viewed)
+      ============================ */
+.buttons {
+  display: flex;
+  gap: 8px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  padding: 6px;
+  width: fit-content;
+  margin-bottom: 24px;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.buttons button:hover {
+  color: #2563eb;
+}
+
+.buttons button.active {
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+/* ============================
+         Saved Scholarships Grid
+      ============================ */
+.display-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.scholarship-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.scholarship-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.scholarship-card h4 {
+  margin: 8px 0 4px;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  padding-right: 30px; /* keep text clear of the save icon */
+}
+
+.scholarship-card .location,
+.scholarship-card .deadline {
+  color: #666;
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
+  margin-top: 2px;
+}
+
+.save-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #eff6ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.save-icon img {
+  width: 16px;
+}
+
+.save-icon:hover {
+  background: #dbeafe;
+}
+
+/* saved = filled blue icon; swap /icons8-bookmark-30.png for a filled variant if you have one */
+.save-icon.saved {
+  background: #2563eb;
+}
+
+.save-icon.saved img {
+  filter: brightness(0) invert(1);
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: clamp(0.7rem, 0.8vw, 0.8rem);
+  font-weight: 600;
+}
+
+.badge-eligible {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.badge-partial {
+  background: #fef9c3;
+  color: #b45309;
+}
+
+.badge-ineligible {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* ============================
+         Mobile Nav (hidden on desktop)
+      ============================ */
+.mobile-nav {
+  display: none;
+}
+
+/* ============================
+         Responsive: Mobile
+      ============================ */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+    padding-bottom: 90px;
+  }
+
+  .main-content .container {
+    padding: 20px;
+  }
+
+  #back-btn {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  #back-btn img {
+    width: 22px;
+  }
+
+  .buttons {
+    width: 100%;
+  }
+
+  .buttons button {
+    flex: 1;
+  }
+
+  .mobile-nav {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 72px;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.12);
+    z-index: 999;
+  }
+
+  .mobile-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    transition: 0.25s;
+  }
+
+  .mobile-nav a img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .mobile-nav a.active {
+    background: #eef4ff;
+  }
+
+  .mobile-nav a.active img {
+    filter: invert(38%) sepia(89%) saturate(1800%) hue-rotate(214deg)
+      brightness(97%) contrast(94%);
+  }
+}
+

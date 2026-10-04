@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link
+      rel="shortcut icon"
+      href="/SCHOOlar/images/logo.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(180deg, #ffffff 0%, #a8dcf0 100%);
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        padding: 20px;
+      }
+
+      form {
+        width: min(500px, 100%);
+        background: #fff;
+        padding: 35px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .form-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .form-header h1 {
+        font-size: clamp(1.6rem, 3vw, 2rem);
+        margin: auto;
+      }
+
+      .form-header a {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        text-decoration: none;
+        color: #333;
+        font-size: 1.2rem;
+        transition: 0.3s;
+      }
+
+      .form-header a:hover {
+        background: #2563eb;
+        color: white;
+        border-color: #2563eb;
+      }
+
+      hr {
+        margin: 20px 0;
+        border: none;
+        height: 1px;
+        background: #ddd;
+      }
+
+      .basic-details,
+      .student-details {
+        margin-bottom: 25px;
+      }
+
+      .basic-details h3,
+      .student-details h3 {
+        margin-bottom: 15px;
+        color: #2563eb;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: 0.3s;
+      }
+
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+      }
+
+      .error-msg {
+        display: none;
+        color: #dc2626;
+        font-size: 0.85rem;
+        margin-top: -8px;
+        margin-bottom: 15px;
+      }
+
+      .error-msg.show {
+        display: block;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: #1d4ed8;
+      }
+
+      button:disabled {
+        background: #93b4f2;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form id="register-form">
+      <div class="form-header">
+        <a href="/SCHOOlar/login.html">
+          <img src="/SCHOOlar/icons/icons8-back-30.png" alt="" />
+        </a>
+        <h1>Create Account</h1>
+      </div>
+
+      <hr />
+
+      <div class="basic-details">
+        <h3>Basic Details</h3>
+
+        <label for="name">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter your full name"
+          required
+        />
+
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="example@email.com"
+          required
+        />
+
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="At least 8 characters"
+          minlength="8"
+          required
+        />
+      </div>
+
+      <div class="student-details">
+        <h3>Student Details</h3>
+
+        <label for="municipality">City / Municipality</label>
+        <select id="municipality" required>
+          <option value="">Select City / Municipality</option>
+        </select>
+
+        <label for="barangay">Barangay</label>
+        <select id="barangay" required>
+          <option value="">Select Barangay</option>
+        </select>
+
+        <label for="birth-date">Birth Date</label>
+        <input type="date" id="birth-date" required />
+
+        <label for="school">School</label>
+        <select id="school" required>
+          <option value="">Select your School</option>
+        </select>
+
+        <label for="course">Course</label>
+        <select id="course" required disabled>
+          <option value="">Select your Course</option>
+        </select>
+
+        <label for="year-level">Year Level</label>
+        <select id="year-level" required>
+          <option value="">Select Year Level</option>
+          <option>1st Year</option>
+          <option>2nd Year</option>
+          <option>3rd Year</option>
+          <option>4th Year</option>
+          <option>5th Year</option>
+        </select>
+
+        <label for="gwa">GWA (Last Semester)</label>
+        <input
+          type="number"
+          id="gwa"
+          placeholder="Example: 1.75"
+          min="1"
+          max="5"
+          step="0.01"
+          required
+        />
+
+        <label for="family-income">Annual Family Income (₱)</label>
+        <input
+          type="number"
+          id="family-income"
+          placeholder="Enter annual family income"
+          min="0"
+          required
+        />
+      </div>
+
+      <p class="error-msg" id="error-msg"></p>
+
+      <button type="submit" id="submit-btn">Create Account</button>
+    </form>
+
+    <script src="/SCHOOlar/javascript/frontend-data.js"></script>
+    <script src="/SCHOOlar/javascript/register.js"></script>
+  </body>
+</html>
+

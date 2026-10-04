@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Scholarships</title>
+    <link rel="stylesheet" href="/SCHOOlar/css/admin-scholarships.css" />
+    
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>SCHOOlar</h2>
+      <nav>
+        <a href="/SCHOOlar/Admin/admin-dashboard.html"
+          ><img src="/SCHOOlar/icons/icons8-home-30.png" alt="" /> Dashboard</a
+        >
+        <a href="/SCHOOlar/Admin/admin-scholarships.html" class="active"
+          ><img src="/SCHOOlar/icons/icons8-scholarship-30.png" alt="" /> Manage
+          Scholarships</a
+        >
+        <a href="/SCHOOlar/index.html" class="logout-link"><img src="/SCHOOlar/icons/icons8-logout-30.png" alt="" /> Logout</a
+        >
+      </nav>
+    </aside>
+
+    <div class="main-content">
+      <div class="page-header">
+        <h3>Manage Scholarships</h3>
+        <button id="add-btn" type="button">+ Add Scholarship</button>
+      </div>
+
+      <div class="filter-row">
+        <input type="text" id="search-input" placeholder="Search by name..." />
+        <select id="status-filter">
+          <option value="all">All Statuses</option>
+          <option value="available">Available only</option>
+          <option value="not available">Not Available only</option>
+        </select>
+      </div>
+
+      <div class="scholarship-list" id="scholarship-list">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+    <!-- Add / Edit modal -->
+    <div class="modal-overlay" id="modal-overlay">
+      <div class="modal">
+        <h3 id="modal-title">Add Scholarship</h3>
+        <form id="scholarship-form">
+          <input type="hidden" id="record-id" />
+
+          <div class="field">
+            <label for="field-name">Scholarship Name</label>
+            <input type="text" id="field-name" required />
+          </div>
+
+          <div class="field">
+            <label for="field-provider">Provider</label>
+            <input
+              type="text"
+              id="field-provider"
+              placeholder="e.g. DOST-SEI, LGU Tarlac City"
+            />
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="field-municipality">City / Municipality</label>
+              <select id="field-municipality">
+                <option value="">Any / Nationwide</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="field-barangay">Barangay</label>
+              <select id="field-barangay" disabled>
+                <option value="">Any barangay</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="field-deadline">Application Deadline</label>
+            <input type="date" id="field-deadline" />
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="field-contact-email">Contact Email</label>
+              <input type="email" id="field-contact-email" />
+            </div>
+            <div class="field">
+              <label for="field-contact-phone">Contact Phone</label>
+              <input type="text" id="field-contact-phone" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="field-benefits">Benefits</label>
+            <textarea
+              id="field-benefits"
+              placeholder="e.g. ₱5,000/semester allowance + tuition subsidy"
+              required
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label for="field-requirements">Requirements</label>
+            <textarea
+              id="field-requirements"
+              placeholder="e.g. Certificate of registration, income tax return"
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label for="field-status">Availability</label>
+            <select id="field-status">
+              <option value="available">Available</option>
+              <option value="not available">Not Available</option>
+            </select>
+          </div>
+
+          <hr class="section-divider" />
+          <h4>Eligibility Criteria</h4>
+          <p class="hint">
+            Leave a field blank to skip that check. This is what the Eligibility
+            Checker will compare a student's profile against.
+          </p>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="field-min-gwa">Min GWA (best)</label>
+              <input
+                type="number"
+                id="field-min-gwa"
+                min="1"
+                max="5"
+                step="0.01"
+                placeholder="1.00"
+              />
+            </div>
+            <div class="field">
+              <label for="field-max-gwa">Max GWA (worst allowed)</label>
+              <input
+                type="number"
+                id="field-max-gwa"
+                min="1"
+                max="5"
+                step="0.01"
+                placeholder="2.50"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="field-max-income">Max Annual Family Income (₱)</label>
+            <input
+              type="number"
+              id="field-max-income"
+              min="0"
+              placeholder="e.g. 300000"
+            />
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="field-min-age">Min Age</label>
+              <input type="number" id="field-min-age" min="0" />
+            </div>
+            <div class="field">
+              <label for="field-max-age">Max Age</label>
+              <input type="number" id="field-max-age" min="0" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Eligible Year Levels</label>
+            <div class="checkbox-group" id="year-level-checkboxes">
+              <label><input type="checkbox" value="1st Year" /> 1st Year</label>
+              <label><input type="checkbox" value="2nd Year" /> 2nd Year</label>
+              <label><input type="checkbox" value="3rd Year" /> 3rd Year</label>
+              <label><input type="checkbox" value="4th Year" /> 4th Year</label>
+              <label><input type="checkbox" value="5th Year" /> 5th Year</label>
+            </div>
+            <p class="hint">None checked = open to every year level.</p>
+          </div>
+
+          <div class="field">
+            <label for="field-course-scope">Course Scope</label>
+            <input
+              type="text"
+              id="field-course-scope"
+              placeholder="e.g. Information Technology, Engineering (comma-separated)"
+            />
+            <p class="hint">Leave blank for any course.</p>
+          </div>
+
+          <div class="field checkbox-field">
+            <label>
+              <input type="checkbox" id="field-residency" />
+              Must be a resident of the barangay/municipality above
+            </label>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" id="cancel-btn">Cancel</button>
+            <button type="submit" id="save-scholarship-btn">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <nav class="mobile-nav">
+      <a href="/SCHOOlar/Admin/admin-dashboard.html"
+        ><img src="/SCHOOlar/icons/icons8-home-30.png" alt="" />
+      </a>
+      <a href="/SCHOOlar/Admin/admin-scholarships.html" class="active"
+        ><img src="/SCHOOlar/icons/icons8-scholarship-30.png" alt="" />
+      </a>
+      <a href="/SCHOOlar/index.html" class="logout-link"><img src="/SCHOOlar/icons/icons8-logout-30.png" alt="" />
+      </a>
+    </nav>
+
+      <script src="/SCHOOlar/javascript/auth-check.js"></script>
+    <script src="/SCHOOlar/javascript/frontend-data.js"></script>
+    <script src="/SCHOOlar/javascript/admin-scholarships.js"></script>
+  </body>
+</html>
+

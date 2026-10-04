@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link
+      rel="shortcut icon"
+      href="/SCHOOlar/images/logo.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/SCHOOlar/css/user-profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    />
+  </head>
+  <body>
+    <!-- Desktop Sidebar -->
+    <aside class="sidebar">
+      <h2>SCHOOLar</h2>
+      <nav>
+        <a href="/SCHOOlar/User/user-dashboard.html"
+          ><img src="/SCHOOlar/icons/icons8-home-30.png" alt="" /> Home</a
+        >
+        <a href="/SCHOOlar/User/user-search.html"
+          ><img src="/SCHOOlar/icons/icons8-search-30.png" alt="" /> Find
+          Scholarships</a
+        >
+        <a href="/SCHOOlar/User/user-nearby.html">
+          <img src="/SCHOOlar/icons/icons8-location-30.png" alt="" />Nearby</a
+        >
+        <a href="/SCHOOlar/User/user-saved.html"
+          ><img src="/SCHOOlar/icons/icons8-saved-30.png" alt="" /> Saved</a
+        >
+        <a href="/SCHOOlar/User/user-profile.html" class="active"
+          ><img src="/SCHOOlar/icons/icons8-profile-30.png" alt="" /> Profile</a
+        >
+        <a href="/SCHOOlar/index.html" class="logout-link"
+          ><img src="/SCHOOlar/icons/icons8-logout-30.png" alt="" /> Logout</a
+        >
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="profile-card">
+        <form id="profile-form">
+          <div class="form-head">
+            <div class="form-head-left">
+              <img src="/SCHOOlar/images/user.jpg" alt="Profile photo" />
+              <h3 id="profile-name">Adrian James Padilla</h3>
+            </div>
+            <button id="edit-btn" type="button">Edit Profile</button>
+          </div>
+
+          <div class="user-info">
+            <section class="personal-info">
+              <h4>Personal Information</h4>
+              <div class="field">
+                <label for="name">Full Name</label>
+                <input type="text" name="name" id="name" disabled />
+              </div>
+              <div class="field">
+                <label for="age">Age</label>
+                <input type="number" name="age" id="age" min="0" disabled />
+              </div>
+              <div class="field">
+                <label for="municipality">Municipality / City</label>
+                <select name="municipality" id="municipality" disabled required>
+                  <option value="">Select Municipality / City</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="barangay">Barangay</label>
+                <select name="barangay" id="barangay" disabled required>
+                  <option value="">Select Barangay</option>
+                </select>
+              </div>
+            </section>
+
+            <section class="school-info">
+              <h4>School Information</h4>
+              <div class="field">
+                <label for="school">School</label>
+                <select name="school" id="school" disabled>
+                  <option value="">Select your School</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="course">Course</label>
+                <select name="course" id="course" disabled>
+                  <option value="">Select your Course</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="year">Year Level</label>
+                <select name="year" id="year" disabled>
+                  <option>1st Year</option>
+                  <option>2nd Year</option>
+                  <option>3rd Year</option>
+                  <option>4th Year</option>
+                  <option>5th Year</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="gpa">GPA</label>
+                <input
+                  type="text"
+                  name="gpa"
+                  id="gpa"
+                  inputmode="decimal"
+                  disabled
+                />
+              </div>
+            </section>
+
+            <section class="family-info">
+              <h4>Family Information</h4>
+              <div class="field">
+                <label for="income">Annual Family Income (₱)</label>
+                <input
+                  type="number"
+                  name="income"
+                  id="income"
+                  min="0"
+                  disabled
+                />
+              </div>
+            </section>
+
+            <button id="save-btn" type="submit" disabled>
+              <img src="/SCHOOlar/icons/icons8-save-30.png" alt="" /> Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <nav class="mobile-nav">
+      <a href="/SCHOOlar/User/user-dashboard.html" class="active"
+        ><img src="/SCHOOlar/icons/icons8-home-30.png" alt="" />
+      </a>
+      <a href="/SCHOOlar/User/user-search.html"
+        ><img src="/SCHOOlar/icons/icons8-search-30.png" alt="" />
+      </a>
+      <a href="/SCHOOlar/User/user-nearby.html"
+        ><img src="/SCHOOlar/icons/icons8-location-30.png" alt="" />
+      </a>
+      <a href="/SCHOOlar/User/user-saved.html"
+        ><img src="/SCHOOlar/icons/icons8-saved-30.png" alt="" />
+      </a>
+      <a href="/SCHOOlar/User/user-setting.html"
+        ><img src="/SCHOOlar/icons/icons8-setting-30.png" alt="" />
+      </a>
+    </nav>
+
+    <script src="/SCHOOlar/javascript/auth-check.js"></script>
+    <script src="/SCHOOlar/javascript/frontend-data.js"></script>
+    <script src="/SCHOOlar/javascript/user-profile.js"></script>
+  </body>
+</html>

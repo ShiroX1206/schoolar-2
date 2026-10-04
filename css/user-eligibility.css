@@ -1,0 +1,329 @@
+:root {
+  --blue: #2851a3;
+  --blue-dark: #1b3b7a;
+  --red: #e14b4b;
+  --yellow: #f4b400;
+  --green: #2e9e5b;
+  --white: #ffffff;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --line: #e4e8f0;
+  --neutral-border: #d7deea;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  min-height: 100vh;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: linear-gradient(180deg, #ffffff 0%, #a8dcf0 100%);
+  background-attachment: fixed;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  font-size: clamp(14px, 2vw, 16px);
+  color: var(--ink);
+}
+
+/* Main Card */
+.card {
+  width: 100%;
+  max-width: none;
+  background: var(--white);
+  border-radius: 20px;
+  border: 4px solid var(--neutral-border);
+  box-shadow: 0 10px 30px rgba(31, 41, 55, 0.1);
+  padding: 30px 35px;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card.result-eligible {
+  border-color: var(--green);
+  box-shadow: 0 10px 30px rgba(46, 158, 91, 0.25);
+}
+
+.card.result-some {
+  border-color: var(--yellow);
+  box-shadow: 0 10px 30px rgba(244, 180, 0, 0.28);
+}
+
+.card.result-not {
+  border-color: var(--red);
+  box-shadow: 0 10px 30px rgba(225, 75, 75, 0.25);
+}
+
+/* Header */
+.top-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.back-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: 1px solid black;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  font-size: clamp(1.1rem, 2vw, 1.2rem);
+  font-weight: 700;
+  color: var(--blue-dark);
+}
+
+/* Profile Avatar */
+.avatar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-weight: 600;
+  overflow: hidden;
+  position: relative;
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 3px var(--neutral-border);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-edit {
+  margin-top: 10px;
+  font-size: clamp(0.8rem, 1vw, 0.85rem);
+  color: var(--blue);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.avatar-edit:hover {
+  text-decoration: underline;
+}
+
+#photoInput {
+  display: none;
+}
+
+/* Scholarship Details */
+.scholarship-label {
+  font-size: clamp(0.8rem, 1vw, 0.85rem);
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+
+.scholarship-name {
+  font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+  line-height: 1.4;
+  font-weight: 700;
+  color: var(--blue-dark);
+  margin-bottom: 22px;
+  overflow-wrap: anywhere;
+}
+
+/* Form */
+.section-title {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  font-size: clamp(0.7rem, 1vw, 0.8rem);
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 12px;
+  border-radius: 9px;
+  border: 1.5px solid var(--line);
+  font-family: inherit;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  color: var(--ink);
+  background: #fafbfe;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--blue);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(40, 81, 163, 0.08);
+}
+
+.field input::placeholder {
+  color: #9ca3af;
+}
+
+.field select:disabled {
+  background: #f0f2f7;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Check Button */
+.check-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: var(--white);
+  font-family: inherit;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.check-btn:active {
+  transform: scale(0.98);
+}
+
+/* Result Box */
+.result-box {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #f5f7fc;
+  display: none;
+  align-items: center;
+  gap: 12px;
+}
+
+.result-box.show {
+  display: flex;
+}
+
+.result-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.result-eligible .result-dot {
+  background: var(--green);
+}
+
+.result-some .result-dot {
+  background: var(--yellow);
+}
+
+.result-not .result-dot {
+  background: var(--red);
+}
+
+.result-text {
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  line-height: 1.5;
+}
+
+.result-text .label {
+  display: block;
+  font-size: clamp(0.7rem, 1vw, 0.8rem);
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+
+.result-text .value {
+  font-weight: 700;
+}
+
+.result-eligible .value {
+  color: var(--green);
+}
+
+.result-some .value {
+  color: #b78500;
+}
+
+.result-not .value {
+  color: var(--red);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  body {
+    padding: 16px 12px;
+  }
+
+  .card {
+    padding: 20px 16px 24px;
+    border-radius: 18px;
+  }
+
+  .top-row {
+    gap: 8px;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .scholarship-name {
+    font-size: 1.2rem;
+  }
+
+  .field input,
+  .field select {
+    padding: 10px;
+  }
+
+  .check-btn {
+    padding: 12px;
+  }
+}
+

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scholarship Details — SCHOOLar</title>
+    <link
+      rel="shortcut icon"
+      href="/SCHOOlar/images/logo.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    />
+    <link rel="stylesheet" href="/SCHOOlar/css/scholarship-detail.css" />
+    
+  </head>
+  <body>
+    <div class="detail-page" id="detailPage">
+      <header class="hero">
+        <a
+          href="/SCHOOlar/User/user-dashboard.html"
+          class="back-btn"
+          aria-label="Back"
+        >
+          <img src="/SCHOOlar/icons/icons8-back-30.png" alt="" />
+        </a>
+
+        <button class="save-btn" id="saveBtn" aria-label="Save scholarship">
+          <img src="/SCHOOlar/icons/icons8-color-save-30.png" alt="" />
+        </button>
+
+        <div class="hero-mark" id="orgMark">S</div>
+        <span class="hero-category" id="category">Category</span>
+        <h1 id="scholarshipName">Scholarship Name</h1>
+        <p class="hero-provider" id="provider">Provider</p>
+      </header>
+
+      <div class="sheet">
+        <div class="quickfacts" id="quickfacts">
+          <!-- deadline / slots / coverage chips injected here -->
+        </div>
+
+        <section class="block">
+          <h2><span class="dot dot-benefit"></span>Benefits</h2>
+          <ul id="benefitsList"></ul>
+        </section>
+
+        <section class="block">
+          <h2><span class="dot dot-req"></span>Requirements</h2>
+          <ul id="requirementsList"></ul>
+        </section>
+
+        <section class="block">
+          <h2><span class="dot dot-elig"></span>Eligibility Criteria</h2>
+          <ul id="criteriaList"></ul>
+        </section>
+
+        <section class="block meta-block">
+          <div class="meta-item">
+            <span class="meta-label">Deadline</span>
+            <span class="meta-value" id="deadlineValue">—</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value" id="locationValue">—</span>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2>Contact Information</h2>
+          <ul class="contact-list" id="contactList"></ul>
+        </section>
+
+        <div class="cta-spacer"></div>
+      </div>
+
+      <div class="cta-bar">
+        <button class="eligibility-btn">
+          Check your Eligibility
+        </button>
+      </div>
+    </div>
+    
+      <script src="/SCHOOlar/javascript/auth-check.js"></script>
+    <script src="/SCHOOlar/javascript/frontend-data.js"></script>
+    <script src="/SCHOOlar/javascript/scholarship-detail.js"></script>
+  </body>
+</html>
+

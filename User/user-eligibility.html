@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eligibility Checker — SCHOOLar</title>
+    <link
+      rel="shortcut icon"
+      href="/SCHOOlar/images/logo.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/SCHOOlar/css/user-eligibility.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    />
+    
+  </head>
+  <body>
+    <div class="card" id="checkerCard">
+      <div class="top-row">
+        <a
+          href="/SCHOOlar/User/user-dashboard.html"
+          class="back-btn"
+          aria-label="Back"
+        >
+          <img src="/SCHOOlar/icons/icons8-back-30.png" alt="" />
+        </a>
+        <h1>Eligibility Checker</h1>
+      </div>
+
+      <div class="avatar-wrap">
+        <div class="avatar" id="avatar">
+          <img src="/SCHOOlar/images/profile.png" alt="" />
+        </div>
+        <button
+          class="avatar-edit"
+          id="photo-edit-btn"
+          type="button"
+        >
+          Change photo
+        </button>
+        <input type="file" id="photoInput" accept="image/*" style="display: none" />
+      </div>
+
+      <div class="scholarship-label">Scholarship Name</div>
+      <div class="scholarship-name" id="scholarshipName">
+        Loading scholarship...
+      </div>
+
+      <div class="section-title">Your Information</div>
+
+      <div class="field">
+        <label for="age">Age</label>
+        <input type="number" id="age" placeholder="e.g. 19" />
+      </div>
+      <div class="field">
+        <label for="barangay">Address / Barangay</label>
+        <input
+          type="text"
+          id="barangay"
+          placeholder="e.g. Brgy. San Isidro, Tarlac City"
+        />
+      </div>
+      <div class="field">
+        <label for="school">School</label>
+        <input
+          type="text"
+          id="school"
+          placeholder="e.g. Tarlac State University"
+        />
+      </div>
+      <div class="field">
+        <label for="course">Course</label>
+        <input
+          type="text"
+          id="course"
+          placeholder="e.g. BS Information Technology"
+        />
+      </div>
+      <div class="field">
+        <label for="yearLevel">Year Level</label>
+        <select id="yearLevel">
+          <option value="">Select year level</option>
+          <option>1st Year</option>
+          <option>2nd Year</option>
+          <option>3rd Year</option>
+          <option>4th Year</option>
+          <option>5th Year</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="gpa">GPA / General Average</label>
+        <input
+          type="number"
+          step="0.01"
+          id="gpa"
+          placeholder="e.g. 1.75"
+          readonly
+        />
+      </div>
+      <div class="field">
+        <label for="income">Annual Family Income (₱)</label>
+        <input type="number" id="income" placeholder="e.g. 180000" />
+      </div>
+
+      <button class="check-btn" type="button">
+        Check Eligibility
+      </button>
+
+      <div class="result-box" id="resultBox">
+        <div class="result-dot"></div>
+        <div class="result-text">
+          <span class="label">Result</span>
+          <span class="value" id="resultValue">—</span>
+        </div>
+      </div>
+    </div>
+
+    
+      <script src="/SCHOOlar/javascript/auth-check.js"></script>
+    <script src="/SCHOOlar/javascript/frontend-data.js"></script>
+    <script src="/SCHOOlar/javascript/user-eligibility.js"></script>
+  </body>
+</html>
+

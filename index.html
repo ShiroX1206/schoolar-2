@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCHOOlar</title>
+    <link
+      rel="shortcut icon"
+      href="/SCHOOlar/images/logo.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+        background: linear-gradient(180deg, #c4e6ff 0%, #2f9cf2 100%);
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      }
+
+      html {
+        min-height: 100%;
+      }
+
+      .logo-container {
+        position: relative; /* circles measure their position from the logo */
+      }
+
+      .logo-container img {
+        display: block;
+        width: 250px;
+        max-width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      /* yellow circle: a bit bigger and higher, mostly tucked behind the logo */
+      .logo-container::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: 82%;
+        aspect-ratio: 1;
+        left: 73%;
+        top: 14%;
+        border-radius: 50%;
+        background: linear-gradient(to top right, #e9bf33, #f7e26b);
+      }
+
+      /* big blue circle: moved up so it starts behind the logo, buttons sit on it */
+      .logo-container::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: 132%;
+        aspect-ratio: 1;
+        left: -66%;
+        top: 66%;
+        border-radius: 50%;
+        background: linear-gradient(to top right, #1b5a8c, #3d9fe8);
+      }
+
+      .btns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .btns a {
+        width: 200px;
+        text-align: center;
+        background-color: blue;
+        padding: 15px 20px;
+        border-radius: 8px;
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        transition: background-color 0.3s ease;
+      }
+
+      .btns a:hover {
+        background-color: #1d4ed8;
+      }
+
+      @media (min-width: 768px) {
+        /* stop measuring from the logo; measure from the screen instead */
+        .logo-container {
+          position: static;
+        }
+
+        .logo-container::before,
+        .logo-container::after {
+          position: fixed;
+        }
+
+        /* yellow circle: right edge */
+        .logo-container::after {
+          width: 55vh;
+          left: auto;
+          right: -12vh;
+          top: 20vh;
+        }
+
+        /* blue circle: left edge */
+        .logo-container::before {
+          width: 65vh;
+          left: -20vh;
+          top: auto;
+          bottom: -8vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo-container">
+        <img src="/SCHOOlar/images/schoolar.png" alt="SCHOOlar" />
+      </div>
+      <div class="btns">
+        <a href="/SCHOOlar/Admin/admin-login.html">admin </a>
+        <a href="/SCHOOlar/login.html">user</a>
+      </div>
+    </div>
+  </body>
+</html>

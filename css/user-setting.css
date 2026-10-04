@@ -1,0 +1,274 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffffff 0%, #a8dcf0 100%);
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  color: #1e293b;
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+/* Desktop Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 240px;
+  height: 100vh;
+  background: #fff;
+  padding: 30px 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+  color: #2563eb;
+  margin-bottom: 30px;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #444;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+}
+
+.sidebar nav a > img {
+  width: 20px;
+}
+
+.sidebar nav a.active > img {
+  filter: brightness(0) invert(1);
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background: #2563eb;
+  color: white;
+}
+
+/* ============================
+               Main Content
+            ============================ */
+.main-content {
+  margin-left: 240px;
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#back-btn {
+  display: none;
+}
+
+/* ============================
+               Profile Card
+            ============================ */
+.profile-card {
+  width: min(100%, 500px);
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.profile-top {
+  background: #fff;
+  padding: 32px 24px 24px;
+  text-align: center;
+}
+
+.profile-top h3 {
+  color: #2563eb;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  margin-bottom: 18px;
+}
+
+.avatar {
+  width: clamp(85px, 18vw, 110px);
+  height: clamp(85px, 18vw, 110px);
+  margin: 0 auto 15px;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1.5px solid black;
+}
+
+.user-name {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.profile-menu {
+  background: #dbe6fb;
+  padding: 22px 20px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: #1e293b;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+
+.menu-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item .icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-item .icon img {
+  width: 100%;
+}
+
+.menu-item span.label {
+  flex: 1;
+}
+
+.menu-item .chevron {
+  width: 16px;
+  opacity: 0.5;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+    min-height: calc(100vh - 72px);
+    padding: 18px;
+    padding-bottom: 90px;
+    display: block;
+  }
+
+  #back-btn {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 50%;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  #back-btn img {
+    width: 20px;
+  }
+
+  .profile-card {
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+  }
+
+  .profile-top {
+    padding: 28px 20px;
+  }
+
+  .profile-menu {
+    padding: 18px;
+    gap: 10px;
+  }
+
+  .menu-item {
+    padding: 14px;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+  }
+
+  .menu-item .icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .menu-item .chevron {
+    width: 15px;
+  }
+
+  .mobile-nav {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 72px;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.12);
+    z-index: 999;
+  }
+
+  .mobile-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    transition: 0.25s;
+  }
+
+  .mobile-nav a img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .mobile-nav a.active {
+    background: #eef4ff;
+  }
+
+  .mobile-nav a.active img {
+    filter: invert(38%) sepia(89%) saturate(1800%) hue-rotate(214deg)
+      brightness(97%) contrast(94%);
+  }
+}
+

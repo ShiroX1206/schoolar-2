@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(180deg, #ffffff 0%, #a8dcf0 100%);
+        font-family: system-ui, sans-serif;
+        padding: 20px;
+      }
+
+      form {
+        width: min(400px, 100%);
+        background: white;
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .logo-container {
+        text-align: center;
+        margin-bottom: 15px;
+      }
+
+      .logo-container img {
+        width: 130px;
+        max-width: 250px;
+        border-radius: 50%;
+        height: auto;
+      }
+
+      .badge {
+        display: block;
+        text-align: center;
+        color: #2563eb;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        margin-bottom: 25px;
+        font-size: clamp(0.85rem, 1vw, 0.95rem);
+      }
+
+      .input-fields {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .input-fields input[type="text"],
+      .input-fields input[type="email"],
+      .input-fields input[type="password"] {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+        outline: none;
+        transition: 0.3s;
+      }
+
+      .input-fields input[type="text"]:focus,
+      .input-fields input[type="email"]:focus,
+      .input-fields input[type="password"]:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+      }
+
+      .error-msg {
+        display: none;
+        color: #dc2626;
+        font-size: 0.85rem;
+      }
+
+      .error-msg.show {
+        display: block;
+      }
+
+      #login-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background: #2563eb;
+        color: white;
+        border: none;
+        text-decoration: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      #login-btn:hover {
+        background: #1d4ed8;
+      }
+
+      #back-link {
+        text-align: center;
+        text-decoration: none;
+        color: #2563eb;
+        font-size: 0.9rem;
+      }
+
+      #back-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="admin-login-form">
+      <div class="logo-container">
+        <img src="/SCHOOlar/images/schoolar.png" alt="" />
+      </div>
+      <span class="badge">ADMIN PORTAL</span>
+      <div class="input-fields">
+        <input type="email" id="admin-email" placeholder="Admin email" />
+        <input type="password" id="admin-password" placeholder="Password" />
+        <p class="error-msg" id="error-msg">Invalid username or password.</p>
+        <button type="submit" id="login-btn">Login</button>
+        <a href="/SCHOOlar/index.html" id="back-link" class="logout-link"
+          >Back to home</a
+        >
+      </div>
+    </form>
+    <script src="/SCHOOlar/javascript/admin-login.js" defer></script>
+  </body>
+</html>

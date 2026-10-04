@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      rel="shortcut icon"
+      href="/SCHOOlar/images/logo.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(180deg, #ffffff 0%, #a8dcf0 100%);
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        padding: 20px;
+      }
+
+      form {
+        width: min(400px, 100%);
+        background: white;
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .logo-container {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .logo-container img {
+        width: 150px;
+        max-width: 250px;
+        border-radius: 50%;
+        height: auto;
+      }
+
+      .input-fields {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .input-fields input[type="email"],
+      .input-fields input[type="password"] {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+        outline: none;
+        transition: 0.3s;
+      }
+
+      .input-fields input[type="text"]:focus,
+      .input-fields input[type="password"]:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+      }
+
+      .remember {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9rem;
+      }
+
+      .remember label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .remember a {
+        color: #2563eb;
+        text-decoration: none;
+      }
+
+      .remember a:hover {
+        text-decoration: underline;
+      }
+
+      .error-msg {
+        display: none;
+        color: #dc2626;
+        font-size: 0.85rem;
+      }
+
+      .error-msg.show {
+        display: block;
+      }
+
+      #login-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background: #2563eb;
+        color: white;
+        border: none;
+        text-decoration: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      #login-btn:hover {
+        background: #1d4ed8;
+      }
+
+      #login-btn:disabled {
+        background: #93b4f2;
+        cursor: not-allowed;
+      }
+
+      #register-link {
+        text-align: center;
+        text-decoration: none;
+        color: #2563eb;
+        font-size: 0.9rem;
+      }
+
+      #register-link:hover {
+        text-decoration: underline;
+      }
+
+      #back-link {
+        text-align: center;
+        text-decoration: none;
+        color: #2563eb;
+        font-size: 0.9rem;
+      }
+
+      #back-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="login-form">
+      <div class="logo-container">
+        <img src="/SCHOOlar/images/schoolar.png" alt="" />
+      </div>
+      <div class="input-fields">
+        <input type="email" id="email" placeholder="Email address" />
+        <input type="password" id="password" placeholder="Password" />
+        <div class="remember">
+          <label>
+            <input type="checkbox" id="remember" />
+            Remember me
+          </label>
+          <a href="#" id="forgot-password">Forgot password?</a>
+        </div>
+        <p class="error-msg" id="error-msg"></p>
+        <button type="submit" id="login-btn">Login</button>
+        <a href="/SCHOOlar/register.html" id="register-link"
+          >Dont have an account? Register now</a
+        >
+        <hr />
+        <a href="/SCHOOlar/index.html" id="back-link" class="logout-link"
+          >Back to home</a
+        >
+      </div>
+    </form>
+    <script src="/SCHOOlar/javascript/login.js" defer></script>
+  </body>
+</html>
